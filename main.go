@@ -9,7 +9,7 @@ import (
 
 func main() {
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintf(w, "Hello, Kubernetes！I'm from Jenkins CI！BRANCH_NAME:%s\n",os.Getenv("branch"))
+        fmt.Fprintf(w, "I'm second version！I'm from Jenkins CI！BRANCH_NAME:%s\n",os.Getenv("branch"))
     })
 
     log.Fatal(http.ListenAndServe(":8080", nil))
