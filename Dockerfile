@@ -1,6 +1,6 @@
 FROM golang:1.11.2-alpine
-WORKDIR /jenkins
-ADD . /jenkins
-RUN go build 
+ADD . /go/src/app
+WORKDIR /go/src/app
+RUN GOOS=linux GOARCH=386 go build -v -o /go/src/app/jenkins-app
 EXPOSE 8080
-ENTRYPOINT ./jenkins
+CMD ["./jenkins-app"]
